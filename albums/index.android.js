@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import ReactNative, { AppRegistry } from 'react-native';
+import React from 'react';
+import { AppRegistry, Text } from 'react-native';
 
 const App = () => {
 	return (
