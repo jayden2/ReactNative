@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
+import Card from './Card';
 
 class AlbumDetail extends Component {
 	state = {
@@ -10,9 +11,9 @@ class AlbumDetail extends Component {
 		const { title } = this.props.album;
 
 		return (
-			<View>
+			<Card>
 				<Text>{ title }</Text>
-			</View>
+			</Card>
 		);
 	}
 }
