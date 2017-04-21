@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
+import Button from './Button';
 
 class AlbumDetail extends Component {
 	state = {
@@ -23,8 +24,13 @@ class AlbumDetail extends Component {
 						<Text>{ artist }</Text>
 					</View>
 				</CardSection>
+				
 				<CardSection>
 					<Image style={albumImage} source={{ uri: image }} />
+				</CardSection>
+				
+				<CardSection>
+					<Button />
 				</CardSection>
 			</Card>
 		);
