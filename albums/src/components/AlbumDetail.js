@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 
@@ -9,14 +9,16 @@ class AlbumDetail extends Component {
 	}
 
 	render() {
-		const { title, artist } = this.props.album;
+		const { title, artist, thumbnail_image } = this.props.album;
 		const { headerContent } = styles;
+
+		console.log(thumbnail_image);
 
 		return (
 			<Card>
 				<CardSection>
 					<View>
-
+						<Image source={{ uri: thumbnail_image }} />
 					</View>
 					<View style={headerContent}>
 						<Text>{ title }</Text>
