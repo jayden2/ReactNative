@@ -4,10 +4,11 @@ import { Text, TouchableOpacity } from 'react-native';
 class Button extends Component {
 	render() {
 		const { button, buttonText } = styles;
+		const { onPress } = this.props;
 
 		return (
-			<TouchableOpacity style={button} onPress={() => console.log('')}>
-				<Text style={buttonText}>view ></Text>
+			<TouchableOpacity style={button} onPress={onPress}>
+				<Text style={buttonText}>{ this.props.children }</Text>
 			</TouchableOpacity>
 		);
 	}
