@@ -9,21 +9,22 @@ class AlbumDetail extends Component {
 	}
 
 	render() {
-		const { title, artist, thumbnail_image } = this.props.album;
-		const { headerContent } = styles;
-
-		console.log(thumbnail_image);
+		const { title, artist, thumbnail_image, image } = this.props.album;
+		const { headerContent, thumbnailContent, thumbnailContainer, headerText, albumImage } = styles;
 
 		return (
 			<Card>
 				<CardSection>
-					<View>
-						<Image source={{ uri: thumbnail_image }} />
+					<View style={thumbnailContainer}>
+						<Image style={thumbnailContent} source={{ uri: thumbnail_image }} />
 					</View>
 					<View style={headerContent}>
-						<Text>{ title }</Text>
+						<Text style={headerText}>{ title }</Text>
 						<Text>{ artist }</Text>
 					</View>
+				</CardSection>
+				<CardSection>
+					<Image style={albumImage} source={{ uri: image }} />
 				</CardSection>
 			</Card>
 		);
@@ -33,7 +34,26 @@ class AlbumDetail extends Component {
 const styles = {
 	headerContent: {
 		flexDirection: 'column',
-		justifyContent: 'space-around'
+		justifyContent: 'space-around',
+	},
+	headerText: {
+		fontSize: 18,
+
+	},
+	thumbnailContent: {
+		height: 50,
+		width: 50
+	},
+	thumbnailContainer: {
+		justifyContent: 'center',
+		alignItems: 'center',
+		marginLeft: 10,
+		marginRight: 10
+	},
+	albumImage: {
+		height: 300,
+		flex: 1,
+		width: null
 	}
 };
 
