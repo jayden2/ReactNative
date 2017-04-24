@@ -1,40 +1,42 @@
 import React, { Component } from 'react'
-import { View, TextInput } from 'react-native'
-import { Button, Card, CardSection } from './common'
+import { Button, Card, CardSection, Input } from './common'
 
 class LoginForm extends Component {
 	state = {
-		username: '',
+		email: '',
 		password: ''
 	}
 
 	render() {
-		const { inputStyle } = styles
-
 		return (
 			<Card>
 				<CardSection>
-					<TextInput
-						value={this.state.username}
-						onChangeText={username => this.setState({ username })}
-						style={inputStyle}
+					<Input
+						label="Email"
+						secureTextEntry
+						value={this.state.email}
+						placeholder="example@email.com"
+						keyboardType={'email-address'}
+						onChangeText={email => this.setState({ email })}
 					/>
 				</CardSection>
 				
-				<CardSection />
+				<CardSection>
+					<Input
+						label="Password"
+						secureTextEntry
+						value={this.state.password}
+						placeholder="password"
+						keyboardType={'default'}
+						onChangeText={password => this.setState({ password })}
+					/>
+				</CardSection>
 				
 				<CardSection>
 					<Button>Login</Button>
 				</CardSection>
 			</Card>
 		)
-	}
-}
-
-const styles = {
-	inputStyle: {
-		height: 40,
-		width: 100,
 	}
 }
 
