@@ -1,17 +1,35 @@
 import React, { Component } from 'react'
-import { Text } from 'react-native'
+import { Text, TouchableWithoutFeedback, View } from 'react-native'
+import { connect } from 'react-redux'
 import { CardSection } from './common'
+import * as actions from '../actions'
 
 class ListItem extends Component {
 	render() {
 		const { id, title, description } = this.props.library
+		const { selectLibrary } = this.props
+		const { titleStyle } = styles
 
 		return (
-			<CardSection key={id}>
-				<Text>{ title }</Text>
-			</CardSection>
+			<TouchableWithoutFeedback
+				onPress={() => selectLibrary(id)}
+				key={id}
+			>
+				<View>
+					<CardSection>
+						<Text style={titleStyle}>{ title }</Text>
+					</CardSection>
+				</View>
+			</TouchableWithoutFeedback>
 		)
 	}
 }
 
-export default ListItem
+const styles = {
+	titleStyle: {
+		fontSize: 18,
+		paddingLeft: 15
+	}
+}
+
+export default connect(null, actions)(ListItem)
