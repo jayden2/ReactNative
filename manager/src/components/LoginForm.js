@@ -9,7 +9,7 @@ class LoginForm extends Component {
 	}
 	
 	render() {
-		const { email } = this.props
+		const { email, password } = this.props
 
 		return (
 			<Card>
@@ -27,6 +27,7 @@ class LoginForm extends Component {
 						secureTextEntry
 						label="Password"
 						placeholder="password"
+						value={ password }
 					/>
 				</CardSection>
 
@@ -42,7 +43,8 @@ class LoginForm extends Component {
 
 const mapStateToProps = state => {
 	return {
-		email: state.auth.email
+		email: state.auth.email,
+		password: state.auth.password
 	}
 }
 
