@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import { Scene, Router } from 'react-native-router-flux'
 import LoginForm from './components/LoginForm'
+import EmployeeList from './components/EmployeeList'
 
 class RouterComponent extends Component {
 	render() {
 		return (
-			<Router>
-				<Scene key="login" component={LoginForm} title="Login" initial />
+			<Router sceneStyle={{ paddingTop: 55 }}>
+				<Scene key="login" component={LoginForm} title="Login" />
+				<Scene key="employeeList" component={EmployeeList} title="Employees" />
 			</Router>
 		)
 	}
 }
 
+export default RouterComponent
