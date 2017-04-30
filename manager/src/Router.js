@@ -11,7 +11,13 @@ class RouterComponent extends Component {
 					<Scene key="login" component={LoginForm} title="Login" />
 				</Scene>
 				<Scene key="main">
-					<Scene key="employeeList" component={EmployeeList} title="Employees" />
+					<Scene
+						key="employeeList"
+						component={EmployeeList}
+						title="Employees"
+						rightTitle="Add"
+						onRight={ () => console.log('add button') }
+						/>
 				</Scene>
 				
 			</Router>
