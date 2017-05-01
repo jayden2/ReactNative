@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import { Picker, Text } from 'react-native'
 import { connect } from 'react-redux'
-import { employeeUpdate } from '../actions'
+import { employeeUpdate, employeeCreator } from '../actions'
 import { Card, CardSection, Input, Button } from './common'
 
 class EmployeeCreate extends Component {
+	createEmployeeButton() {
+		const { name, phone, shift } = this.props
+
+		this.props.employeeCreator({ name, phone, shift: shift || 'Monday' })
+	}
+	
 	render() {
 		const { name, phone, shift } = this.props
 
@@ -46,7 +52,7 @@ class EmployeeCreate extends Component {
 				</CardSection>
 
 				<CardSection>
-					<Button>
+					<Button onPress={this.createEmployeeButton.bind(this)}>
 						Create
 					</Button>
 				</CardSection>
@@ -68,4 +74,4 @@ const mapStateToProps = (state) => {
 	return { name, phone, shift }
 }
 
-export default connect(mapStateToProps, { employeeUpdate })(EmployeeCreate)
+export default connect(mapStateToProps, { employeeUpdate, employeeCreator })(EmployeeCreate)

@@ -12,7 +12,7 @@ class RouterComponent extends Component {
 					<Scene key="login" component={LoginForm} title="Login" />
 				</Scene>
 				
-				<Scene key="main" initial>
+				<Scene key="main">
 					<Scene
 						key="employeeList"
 						component={EmployeeList}
