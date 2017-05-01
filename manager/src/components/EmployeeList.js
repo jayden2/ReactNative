@@ -26,7 +26,7 @@ class EmployeeList extends Component {
 	}
 
 	renderRow() {
-		return <ListItem employee={employee} />
+		return <EmployeeListItem employee={employee} />
 	}
 	
 	render() {
