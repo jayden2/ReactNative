@@ -1,6 +1,6 @@
 import firebase from 'firebase'
 import { Actions } from 'react-native-router-flux'
-import { EMPLOYEE_UPDATE, EMPLOYEE_CREATE, EMPLOYEE_SAVE, EMPLOYEES_FETCH_SUCCESS } from './constants'
+import { EMPLOYEE_UPDATE, EMPLOYEE_CREATE, EMPLOYEE_SAVE_SUCCESS, EMPLOYEES_FETCH_SUCCESS } from './constants'
 
 export const employeeUpdate = ({ prop, value }) => {
 	return {
@@ -40,7 +40,7 @@ export const employeeSave = ({ name, phone, shift, uid }) => {
 		firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
 			.set({ name, phone, shift })
 			.then(() => {
-				dispatch({ type: EMPLOYEE_SAVE })
+				dispatch({ type: EMPLOYEE_SAVE_SUCCESS })
 				Actions.employeeList({ type: 'reset' })
 			})
 	}
